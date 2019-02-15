@@ -66,6 +66,14 @@ const ConversationBase = (props) => {
                 className='conversation__messages'
             >
                 {messagesList}
+                {!messagesList.length && (
+                    <Message
+                        name='System'
+                        content='no messages to display'
+                        createdAt={new Date()}
+                        active={false}
+                    />
+                )}
                 <div ref={messagesEnd} />
             </ul>
             <ul className='conversation__participants'>{participants}</ul>
